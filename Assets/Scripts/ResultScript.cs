@@ -18,9 +18,11 @@ public class ResultScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && !next){
+        if (Input.GetKeyDown(KeyCode.Return) && !next)
+        {
             Destroy(result_ui);
             next_ui.SetActive(true);
+            next = true;
         }
     }
 
