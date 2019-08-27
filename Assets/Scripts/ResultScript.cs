@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ResultScript : MonoBehaviour
 {
-    bool next = false;
     [SerializeField] GameObject result_ui;
     [SerializeField] GameObject next_ui;
 
@@ -18,11 +17,10 @@ public class ResultScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && !next)
+        if (Input.GetKeyDown(KeyCode.Return) && !next_ui.activeSelf)
         {
             Destroy(result_ui);
             next_ui.SetActive(true);
-            next = true;
         }
     }
 
