@@ -28,4 +28,9 @@ public class ResultScript : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
     }
+
+    public void ToStart()
+    {
+        SceneManager.LoadScene("Start");
+    }
 }
