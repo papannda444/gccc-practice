@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] int HP = 0;
-    [SerializeField] string name = "";
+    [SerializeField] int _HP = 0;
+    [SerializeField] string _name = "";
     [SerializeField] string[] skill_name = new string[4];
     [SerializeField] int[] skill_damage = new int[4];
     Skill[] skill = new Skill[4];
+
+
+    public int HP
+    {
+        get { return _HP; }
+    }
+
+    public string NAME
+    {
+        get { return _name; }
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +52,20 @@ public class EnemyController : MonoBehaviour
         for(int i = 0; i < 4; i++)
         {
             Debug.Log(skill[i].NAME + ":" + skill[i].DAMAGE);
+        }
+    }
+
+    /// <summary>
+    /// ダメージ処理用
+    /// </summary>
+    /// <param name="damage"></param>
+    public void Damage(int damage)
+    {
+        _HP -= damage;
+
+        if (_HP < 0)
+        {
+            _HP = 0;
         }
     }
 }
