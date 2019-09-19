@@ -10,7 +10,7 @@ public class Skill
     int damage;
     string name;
 
-    public Skill(int _damage,string _name)
+    public Skill(int _damage = 0,string _name = "")
     {
         damage = _damage;
         name = _name;
