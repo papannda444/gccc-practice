@@ -43,11 +43,6 @@ public class EnemyController : MonoBehaviour
         
     }
 
-    public Skill GetSkill(int i)
-    {
-        return skills[i];
-    }
-
     /// <summary>
     /// デバッグ用
     /// </summary>
@@ -72,4 +67,25 @@ public class EnemyController : MonoBehaviour
             hp = 0;
         }
     }
+
+    /// <summary>
+    /// 攻撃対象の配列での順番を返す
+    /// </summary>
+    /// <param name="value">攻撃対象の配列の長さ</param>
+    /// <returns></returns>
+    public int SelectTarget(int value)
+    {
+        return Random.Range(0, value);
+    }
+
+    /// <summary>
+    /// 使用スキルをランダムで返す
+    /// </summary>
+    /// <returns></returns>
+    public Skill SelectSkill()
+    {
+        int a = Random.Range(0, skills.Length);
+        return skills[a];
+    }
+
 }
