@@ -4,30 +4,34 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] int _HP = 0;
-    [SerializeField] string _name = "";
-    [SerializeField] string[] skill_name = new string[4];
-    [SerializeField] int[] skill_damage = new int[4];
-    Skill[] skill = new Skill[4];
+    [SerializeField] int hp = 0;
+    [SerializeField] string enemyName = "";
+    [SerializeField] string[] skillName;
+    [SerializeField] int[] skillDamage;
+    Skill[] skills;
 
 
-    public int HP
+    public int Hp
     {
-        get { return _HP; }
+        get { return hp; }
     }
 
-    public string NAME
+    public string Name
     {
-        get { return _name; }
+        get { return enemyName; }
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < 4; i++)
+        //エラーを防ぐためスキル名配列、ダメージ配列の短いほうをもとにスキル配列を作る
+        int a = Mathf.Min(skillName.Length, skillDamage.Length);
+        skills = new Skill[a];
+
+        for(int i = 0; i < skills.Length; i++)
         {
-            skill[i] = new Skill(skill_damage[i], skill_name[i]);
+            skills[i] = new Skill(skillDamage[i], skillName[i]);
         }
 
         SkillLog();
@@ -41,7 +45,7 @@ public class EnemyController : MonoBehaviour
 
     public Skill GetSkill(int i)
     {
-        return skill[i];
+        return skills[i];
     }
 
     /// <summary>
@@ -49,9 +53,9 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     void SkillLog()
     {
-        for(int i = 0; i < 4; i++)
+        for(int i = 0; i < skills.Length; i++)
         {
-            Debug.Log(skill[i].NAME + ":" + skill[i].DAMAGE);
+            Debug.Log(skills[i].Name + ":" + skills[i].Damage);
         }
     }
 
@@ -61,11 +65,11 @@ public class EnemyController : MonoBehaviour
     /// <param name="damage"></param>
     public void Damage(int damage)
     {
-        _HP -= damage;
+        hp -= damage;
 
-        if (_HP < 0)
+        if (hp < 0)
         {
-            _HP = 0;
+            hp = 0;
         }
     }
 }
