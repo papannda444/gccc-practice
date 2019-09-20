@@ -10,19 +10,19 @@ public class Skill
     int damage;
     string name;
 
-    public Skill(int _damage = 0,string _name = "")
+    public Skill(int _damage ,string _name)
     {
         damage = _damage;
         name = _name;
     }
 
-    public int DAMAGE
+    public int Damage
     {
         get { return damage; }
         set { damage = value; }
     }
 
-    public string NAME
+    public string Name
     {
         get { return name; }
         set { name = value; }
