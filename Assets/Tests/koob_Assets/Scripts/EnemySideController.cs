@@ -56,7 +56,7 @@ public class EnemySideController : MonoBehaviour
         for(int i = 0; i < value; i++)
         {
             float x = (i % 2 == 0) ? posMaxX : posMinX;
-            float y = posMinY + ((yLength / value) * i);
+            float y = posMinY + ((yLength / (value + 1)) * (i + 1));
 
             Instantiate(SelectEnemy(), new Vector2(x, y), Quaternion.identity);
         }
@@ -81,7 +81,7 @@ public class EnemySideController : MonoBehaviour
     /// 敵を全員倒したかを返す
     /// </summary>
     /// <returns></returns>
-    public bool AllDefeat()
+    public bool IsAllDefeat()
     {
         for(int i = 0; i < ExistEnemies.Length; i++)
         {
