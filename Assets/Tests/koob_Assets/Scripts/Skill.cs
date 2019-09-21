@@ -5,26 +5,15 @@ using UnityEngine;
 /// <summary>
 /// スキル用クラス
 /// </summary>
+[System.Serializable]
 public class Skill
 {
-    int damage;
-    string name;
+    public int Damage;
+    public string Name;
 
-    public Skill(int _damage ,string _name)
+    public Skill(int damage ,string name)
     {
-        damage = _damage;
-        name = _name;
-    }
-
-    public int Damage
-    {
-        get { return damage; }
-        set { damage = value; }
-    }
-
-    public string Name
-    {
-        get { return name; }
-        set { name = value; }
+        Damage = damage;
+        Name = name;
     }
 }
