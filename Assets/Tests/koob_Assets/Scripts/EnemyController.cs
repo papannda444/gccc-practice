@@ -6,9 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] int hp = 0;
     [SerializeField] string enemyName = "";
-    [SerializeField] string[] skillName;
-    [SerializeField] int[] skillDamage;
-    Skill[] skills;
+    [SerializeField] Skill[] skills;
 
 
     public int Hp
@@ -24,16 +22,7 @@ public class EnemyController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        //エラーを防ぐためスキル名配列、ダメージ配列の短いほうをもとにスキル配列を作る
-        int a = Mathf.Min(skillName.Length, skillDamage.Length);
-        skills = new Skill[a];
-
-        for(int i = 0; i < skills.Length; i++)
-        {
-            skills[i] = new Skill(skillDamage[i], skillName[i]);
-        }
-
+    {        
         SkillLog();
     }
 
@@ -84,8 +73,7 @@ public class EnemyController : MonoBehaviour
     /// <returns></returns>
     public Skill SelectSkill()
     {
-        int a = Random.Range(0, skills.Length);
-        return skills[a];
+        return skills[Random.Range(0, skills.Length)];
     }
 
 }
