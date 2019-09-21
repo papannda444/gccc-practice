@@ -94,8 +94,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   enemyName: 
-  skillName:
-  - fire
-  - thuder
-  - ice
-  skillDamage: 020000000100000003000000
+  skills:
+  - Damage: 0
+    Name: a
+  - Damage: 0
+    Name: b
+  - Damage: 0
+    Name: c
